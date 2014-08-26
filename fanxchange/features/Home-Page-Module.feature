@@ -29,51 +29,49 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
                  Then  I should see "SIGN UP"
                  Then  I should see "SELL TICKETS"
                  Then  I should see "HELP"
-
+          @remus
           Scenario: Home Page Search Bar
                  Given I am on Fanxchange
                  Then  I should see an "input-append" element
                  And   The search placeholder should contain Search by Team, Artist, Event, Date or Venue
+          @upcoming
+          Scenario: Upcoming events should be displayed based on my location , I should see a number of 5 Upcoming Events 
+                 Given I am on Fanxchange
+                 Then  I should see "Upcoming Events"
+                 Then  I should see 5 events displayed 
+                 Then  I should see "New York"
+                 And   The tickets displayed should match the location for upcoming events
+                 And   I check that the tickets displayed do not have past dates
 
-    Scenario: Upcoming events should be displayed based on my location , I should see a number of 5 Upcoming Events 
-        Given I am on Fanxchange
-        Then  I should see "Upcoming Events"
-        Then  I should see 5 "#ticket-container.frontpage-categories div.row-fluid div.span8 ul.ff-items div.list-box" elements
-        Then  I should see current location for New York
-        And   The tickets displayed should match the location for upcoming events
-        And   I check that the tickets displayed do not have past dates
+          Scenario: No upcoming events without tickets available.
+                 Given I am on Fanxchange
+                 Then  I should see "Upcoming Events"
+                 Then  I should see 5 events displayed
+                 Then  I follow "GET TICKETS"
+                 Then  I check if tickets are available for the current event
 
-    Scenario: No upcoming events without tickets available.
-            Given I am on Fanxchange
-            Then  I should see "Upcoming Events"
-            Then  I should see 5 "#ticket-container.frontpage-categories div.row-fluid div.span8 ul.ff-items div.list-box" elements
-            Then  I press "GET TICKETS" button with xpath "//*[@id='ticket-container']/div/div[1]/ul/div[1]/div[2]/div[2]/a"
-            Then  I check if tickets are available for the current event
+          Scenario: There should be at least 3 popular events displayed at all time. Popular events should not contain events from past dates.
+                 Given I am on Fanxchange
+                 Then  I should see "Popular Events"
+                 Then  I should see an "#ticket-container.frontpage-categories div.row-fluid div.span4 a.category-name" element
+                 Then  I check if displayed popular events are shown for future events
 
-    Scenario: There should be 6 popular events displayed at all time. Popular events should not contain events from past dates.
-            Given I am on Fanxchange
-            Then  I should see "Popular Events"
-            Then  I should see an "#ticket-container.frontpage-categories div.row-fluid div.span4 a.category-name" element
-            Then  I check if displayed popular events are shown for future events
+          Scenario: Change location by city
+                 Given I am on Fanxchange
+                 Then  I should see "Upcoming Events"
+                 Then  I follow "Change Location"
+                 Then  I fill in "zip" with "M4C1S2" 
+                 Then  I press "Change Location"
+                 And   I should see "Toronto, Ontario"
 
-        Scenario: Change location by city
-            Given I am on Fanxchange
-            Then  I should see "Upcoming Events"
-            Then  I follow "Change Location"
-            Then  I fill in "zip" with "M4C1S2"
-            Then  I follow "Change Location" 
-            Then  I press "Change Location" button with xpath "//*[@id='cahange_location_xx']"
-            And   I should see "Toronto, Ontario"
-
-        Scenario: Change location by city with no events
-            Given I am on Fanxchange
-            Then  I should see "Upcoming Events"
-            Then  I follow "Change Location"
-            Then  I fill in "city" with "Prac"
-            Then  I follow "Change Location"
-            Then  I fill in "state" with "Pirac"
-            Then  I press "Change Location"
-            And   I should see "New York, New York"
+          Scenario: Change location by city with no events
+                 Given I am on Fanxchange
+                 Then  I should see "Upcoming Events"
+                 Then  I follow "Change Location"
+                 Then  I fill in "city" with "Prac"
+                 Then  I fill in "state" with "Pirac"
+                 Then  I press "Change Location"
+                 And   I should see "New York, New York"
 
     Scenario: Footer Copy Text should contain: Buy Tickets with Confidence , 100% FanXchange Guarantee , Sell Tickets with Ease
       Given I am on Fanxchange

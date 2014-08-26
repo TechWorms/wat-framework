@@ -12,6 +12,5 @@ Before do
 end
  
 at_exit do
-  browser.screenshot.save 'screenshot.png'
   browser.close
 end

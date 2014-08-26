@@ -18,7 +18,20 @@ Then(/^I should see "(.*)"$/) do |text|
 end
 
 Then(/^I should see an "(.*)" element$/) do |open|
-  @browser.div(:class => open).present? == false
+  array_el = [:class, :id]
+  array_el.each do |el|
+    sss = @browser.element(el => open).exist?
+    if sss
+      @browser.element(el => open).wait_until_present
+      break
+    else
+      false
+    end
+    #if ( p @browsersas.element(el => open).present?).should == true
+     #  p @browser.element(el => open).wait_until_present
+    #end
+  end
+@browser.element(:id => 'cgethry').wait_until_present
 end
 
 Then(/^I should see an "(.*?)" input element$/) do |iE|
@@ -44,4 +57,10 @@ end
 Then(/^I wait for element "(.*)"$/) do |waitr|
   @browser.i(:class => waitr).wait_until_present
 end
+
+Then(/^I should see (\d+) events displayed$/) do |arg1|
+  p @browser.elements(:class => 'list-box').size
+
+end
+
 
