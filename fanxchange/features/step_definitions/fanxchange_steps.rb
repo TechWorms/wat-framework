@@ -14,12 +14,15 @@ Then(/^The title should be FanXchange$/) do
 end
 
 Then(/^I should see "(.*)"$/) do |text|
-	@browser.p(:class => 'frontpage-search-slogan').wait_until_present
-    @browser.text.include?(text).should == true
+    Watir::Wait.until { @browser.text.include? text }
 end
 
 Then(/^I should see an "(.*)" element$/) do |open|
-  @browser.div(:class => open).wait_until_present
+  @browser.div(:class => open).present? == false
+end
+
+Then(/^I should see an "(.*?)" input element$/) do |iE|
+  @browser.input(:id => iE).wait_until_present
 end
 
 Then(/^The search placeholder should contain Search by Team, Artist, Event, Date or Venue$/) do
