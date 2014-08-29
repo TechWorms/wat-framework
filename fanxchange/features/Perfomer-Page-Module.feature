@@ -1,4 +1,4 @@
-@fanx1.3 @all @perfomer
+@fanx1.3 @all @suite
 Feature: Perfomer Page / Filters / Events
 
 			Scenario: Go to NHL dropdown list and choose a team :

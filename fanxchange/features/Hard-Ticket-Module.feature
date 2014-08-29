@@ -1,4 +1,4 @@
-@hardtickets @all
+@hardtickets @suite
 Feature: Hard Tickets
 
 				Scenario: Confirm Order

@@ -90,5 +90,25 @@ Then(/^I go back$/) do
   @browser.div(:class => 'container').wait_until_present 
 end
 
+Given(/^I navigate to "(.*)"$/) do |uri|
+  @browser.goto uri
+end
+
+Then(/^I select "(.*)" from "(.*)"$/) do |sele, seler|
+  @browser.select_list(:id => seler).select_value sele
+end
+
+Then(/^I open the connection$/) do
+  dil = @browser.element(:class => 'button').span
+  dil.click
+end
+
+Then(/^I check if displayed popular events are shown for future events$/) do
+  puts "Dates for current popular events displayed:"
+  @browser.ps(:class => "popular-event-details-limit-chars").each  do |div|   
+    puts div.text if div.exists?
+  end
+end
+
 
 

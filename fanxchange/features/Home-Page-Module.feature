@@ -21,7 +21,7 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
                  Then  I should see "NHL"
                  Then  I should see "Concerts"
                  Then  I should see "Theatre"
-          @test
+          
           Scenario: Home Page Buttons
                  Given I am on Fanxchange
                  Then  I should see "SIGN IN"
@@ -41,7 +41,7 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
                  Then  I should see "New York"
                  And   The events displayed should match the location for upcoming events
                  And   I check that the tickets displayed do not have past dates
-          @goto
+          
           Scenario: No upcoming events without tickets available.
                  Given I am on Fanxchange
                  Then  I should see "Upcoming Events"
@@ -68,11 +68,11 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
                  Then  I check if tickets are available for the current event
                  
 
-
+          @cc
           Scenario: There should be at least 3 popular events displayed at all time. Popular events should not contain events from past dates.
                  Given I am on Fanxchange
                  Then  I should see "Popular Events"
-                 Then  I should see an "#ticket-container.frontpage-categories div.row-fluid div.span4 a.category-name" element
+                 Then  I should see an element with class "upcomming-events-section"
                  Then  I check if displayed popular events are shown for future events
 
           Scenario: Footer Copy Text should contain: Buy Tickets with Confidence , 100% FanXchange Guarantee , Sell Tickets with Ease
@@ -140,33 +140,33 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
                 Then I should see "Wicked"
                 Then I should see "Jersey Boys"
 
-      Scenario: Scroll down to the Footer and check if items are displayed
-           FanXchange:   
-           1. Our Team
-             2. About Us
-             3. Jobs
-             4. Press
-             5. Legal
-          Given I am on Fanxchange
-          Then  I should see "FanXchange"
-          And   I should see "Our Team"
-          And   I should see "About Us"
-          And   I should see "Jobs"
-          And   I should see "Press"
-          And   I should see "Legal"
+          Scenario: Scroll down to the Footer and check if items are displayed
+               FanXchange:   
+                 1. Our Team
+                 2. About Us
+                 3. Jobs
+                 4. Press
+                 5. Legal
+                Given I am on Fanxchange
+                Then  I should see "FanXchange"
+                And   I should see "Our Team"
+                And   I should see "About Us"
+                And   I should see "Jobs"
+                And   I should see "Press"
+                And   I should see "Legal"
         
-        Scenario: Scroll down to the Footer and check if items are displayed
-              More Info:
-              1. Help
-              2. Contact Us
-              3. Photo Credits
-              4. Site Map
-          Given I am on Fanxchange
-          Then  I should see "More Info"
-          And   I should see "Help"
-          And   I should see "Contact Us"
-          And   I should see "Photo Credits"
-          And   I should see "Site Map"
+          Scenario: Scroll down to the Footer and check if items are displayed
+                More Info:
+                1. Help
+                2. Contact Us
+                3. Photo Credits
+                4. Site Map
+                Given I am on Fanxchange
+                Then  I should see "More Info"
+                And   I should see "Help"
+                And   I should see "Contact Us"
+                And   I should see "Photo Credits"
+                And   I should see "Site Map"
         
         Scenario: Scroll down to the Footer and check if items are displayed
               Show Us Some Love:
@@ -189,7 +189,7 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
             And   I should see "Legal"
             And   I should see "Contact Us"
             And   I should see "©2014 FanXchange. All Rights Reserved."
-    @change
+    
     Scenario: Change location by postal code
       Given I am on Fanxchange
       Then  I should see "Upcoming Events"
@@ -225,9 +225,9 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
       And   I should see "New York, New York"
     
     Scenario: Geo Location
-      Given I am on "https://proxylistpro.com/#proxy"
+      Given I navigate to "https://proxylistpro.com/#proxy"
       Then  I fill in "address" with "http://www.fanxchange.com"
-      And   I select "dalas.proxylistpro.com" from "select-location"
-      Then  I press "OPEN SITE" button with xpath "//div/div[2]/div/div[3]/div[1]/div[1]/form/span[3]"
+      And   I select "dallas.proxylistpro.com" from "select-location"
+      Then  I open the connection
       Then  I should see "Upcoming Events"
-      Then  I should see "Dallas"
+      And   The events displayed should match the location for upcoming events

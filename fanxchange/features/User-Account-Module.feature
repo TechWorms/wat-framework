@@ -1,4 +1,4 @@
-@fanx1.6 @all @user
+@fanx1.6 @suite @user
 Feature: Valid Login credentials
 
         @login

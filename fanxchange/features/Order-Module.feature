@@ -1,4 +1,4 @@
-@fanx2.2 @order @all
+@fanx2.2 @order @suite
 Feature: Cupon Codes Discounts
 
 

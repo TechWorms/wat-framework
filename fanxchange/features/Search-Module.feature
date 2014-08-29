@@ -1,4 +1,4 @@
-@fanx1.5 @all @search
+@fanx1.5 @suite @search
 Feature: Given I am on the homepage , I enter search query and I press GO then I should see list of correctly results according to the user's query.
 
         

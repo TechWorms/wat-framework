@@ -1,4 +1,4 @@
-@fanx2.0 @event @all
+@fanx2.0 @event @suite
 Feature: Event Page
 
         
