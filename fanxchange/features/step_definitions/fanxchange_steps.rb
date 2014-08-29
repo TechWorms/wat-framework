@@ -2,11 +2,6 @@ Given(/^I am on Fanxchange$/) do
   @browser.goto "https://devteam:xkc2nXV8@staging.www.fanxchange.com"
 end
 
-Given(/^I am on "(.*?)"$/) do |url|
-  @browser.goto url
-end
-
-
 Then(/^Once the page is loaded$/) do
   @browser.div(:class => 'logo-fanx').wait_until_present
 end
@@ -19,7 +14,7 @@ Then(/^The title should be FanXchange$/) do
 end
 
 Then(/^I should see "(.*)"$/) do |text|
-    Watir::Wait.until { @browser.text.include? text }
+  Watir::Wait.until { @browser.text.include? text }
 end
 
 Then(/^I should see an element with class "(.*)"$/) do |eleclass|
@@ -81,7 +76,18 @@ Then(/^I check that the tickets displayed do not have past dates$/) do
 end
 
 Then(/^I go to the (\d+) displayed event$/) do |evnr|
-  @browser.div(:class => "action", :index => 1).click
+ lnk = @browser.element(:class => "action", :index => evnr.to_i).a
+ lnk.click
+end
+
+Then(/^I check if tickets are available for the current event$/) do
+  tickets = @browser.h3(:id => 'mapPageTicketTitle').text
+  puts tickets
+end
+
+Then(/^I go back$/) do
+  @browser.back
+  @browser.div(:class => 'container').wait_until_present 
 end
 
 

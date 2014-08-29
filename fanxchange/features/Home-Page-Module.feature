@@ -21,7 +21,7 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
                  Then  I should see "NHL"
                  Then  I should see "Concerts"
                  Then  I should see "Theatre"
-          
+          @test
           Scenario: Home Page Buttons
                  Given I am on Fanxchange
                  Then  I should see "SIGN IN"
@@ -46,9 +46,28 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
                  Given I am on Fanxchange
                  Then  I should see "Upcoming Events"
                  Then  I should see 5 events displayed
-                 Then  I go to the 1 displayed event
-                 Then  I should see "244 tickets available"
+                 Then  I go to the 0 displayed event
+                 Then  I should see "tickets available"
                  Then  I check if tickets are available for the current event
+                 Then  I go back
+                 And   I should see "Upcoming Events"
+                 Then  I go to the 1 displayed event
+                 Then  I should see "tickets available"
+                 Then  I check if tickets are available for the current event
+                 Then  I go back
+                 Then  I go to the 2 displayed event
+                 Then  I should see "tickets available"
+                 Then  I check if tickets are available for the current event
+                 Then  I go back
+                 Then  I go to the 3 displayed event
+                 Then  I should see "tickets available"
+                 Then  I check if tickets are available for the current event
+                 Then  I go back
+                 Then  I go to the 4 displayed event
+                 Then  I should see "tickets available"
+                 Then  I check if tickets are available for the current event
+                 
+
 
           Scenario: There should be at least 3 popular events displayed at all time. Popular events should not contain events from past dates.
                  Given I am on Fanxchange
