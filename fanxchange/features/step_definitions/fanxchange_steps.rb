@@ -81,7 +81,7 @@ Then(/^I check that the tickets displayed do not have past dates$/) do
 end
 
 Then(/^I go to the (\d+) displayed event$/) do |evnr|
-  @browser. div(:class => "action", :index => 1).click
+  @browser.div(:class => "action", :index => 1).click
 end
 
 
