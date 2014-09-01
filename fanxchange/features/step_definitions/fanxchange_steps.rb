@@ -67,7 +67,6 @@ Then(/^The events displayed should match the location for upcoming events$/) do
   end
 end
 
-
 Then(/^I check that the tickets displayed do not have past dates$/) do
   puts "Dates for current events displayed:"
   @browser.divs(:class => "date").each  do |div|   
@@ -110,5 +109,21 @@ Then(/^I check if displayed popular events are shown for future events$/) do
   end
 end
 
+Then(/^I should see drop down results for search query$/) do
+  puts "Perfomers"
+  pf1 = @browser.element(:class => "ui-menu-item", :index => 0).text
+  pf2 = @browser.element(:class => "ui-menu-item", :index => 1).text
+  pf3 = @browser.element(:class => "ui-menu-item", :index => 2).text
+  puts pf1
+  puts pf2
+  puts pf3
+  puts "Events"
+  ev1 = @browser.element(:class => "ui-menu-item", :index => 3).text
+  ev2 = @browser.element(:class => "ui-menu-item", :index => 4).text
+  ev3 = @browser.element(:class => "ui-menu-item", :index => 5).text
+  puts ev1
+  puts ev2
+  puts ev3
+end
 
 

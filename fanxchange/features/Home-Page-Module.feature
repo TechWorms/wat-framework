@@ -1,5 +1,5 @@
 @homepage @suite
-Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Search
+Feature: FANX-1.0 / FANX-1.1 / FANX-1.2 / FANX-1.4 / FANX-2.6
 
 
           Scenario: Homepage
@@ -67,8 +67,6 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
                  Then  I should see "tickets available"
                  Then  I check if tickets are available for the current event
                  
-
-          @cc
           Scenario: There should be at least 3 popular events displayed at all time. Popular events should not contain events from past dates.
                  Given I am on Fanxchange
                  Then  I should see "Popular Events"
@@ -85,7 +83,7 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
                  And   I should see "The FanXchange Guarantee is our commitment to our valued clientele that they will be 100% protected against fraud and your tickets will always arrive on time for the event. Whether you are buying or selling tickets in our marketplace FanX Guarantee assures that every transaction will be completed in a safe and secure environment."
                  Then  I should see "Read More"
         
-          Scenario: Footer Links should contain: Quick Links for categories of events / FanXchange footer links
+         Scenario: Footer Links should contain: Quick Links for categories of events / FanXchange footer links
                 Given I am on Fanxchange
                 
                 Then I should see "NFL TICKETS"
@@ -141,12 +139,7 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
                 Then I should see "Jersey Boys"
 
           Scenario: Scroll down to the Footer and check if items are displayed
-               FanXchange:   
-                 1. Our Team
-                 2. About Us
-                 3. Jobs
-                 4. Press
-                 5. Legal
+               FanXchange: 1. Our Team , 2. About Us , 3. Jobs , 4. Press , 5. Legal
                 Given I am on Fanxchange
                 Then  I should see "FanXchange"
                 And   I should see "Our Team"
@@ -156,11 +149,7 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
                 And   I should see "Legal"
         
           Scenario: Scroll down to the Footer and check if items are displayed
-                More Info:
-                1. Help
-                2. Contact Us
-                3. Photo Credits
-                4. Site Map
+                More Info: 1. Help , 2. Contact Us  , 3. Photo Credits , 4. Site Map
                 Given I am on Fanxchange
                 Then  I should see "More Info"
                 And   I should see "Help"
@@ -169,10 +158,7 @@ Feature: FANX-1.0 Header / FanXchange logo / Dropdown Categories / Buttons / Sea
                 And   I should see "Site Map"
         
         Scenario: Scroll down to the Footer and check if items are displayed
-              Show Us Some Love:
-              1. Facebook
-              2. Twitter
-              3. Instagram
+              Show Us Some Love: 1. Facebook , 2. Twitter , 3. Instagram
           Given I am on Fanxchange
           Then  I should see "Show Us Some Love"
           And   I should see "Facebook"
