@@ -1,4 +1,4 @@
-@fanx1.3 @all @suite
+@suite @perfomer
 Feature: Perfomer Page / Filters / Events
 
 			Scenario: Go to NHL dropdown list and choose a team :
@@ -6,9 +6,10 @@ Feature: Perfomer Page / Filters / Events
 						2. Schedule button is "pressed" by default
 						3. Load More button is displayed if there are more than 30 events
 				Given I am on Fanxchange
-				And   I press "MLB" button with xpath "//*[@id='closepls']/div[1]/div/div/div/ul/li[2]/a"
-				Then  I press "Airzona Diamondbacks" button with xpath "//*[@id='closepls']/div[1]/div/div/div/ul/li[2]/ul/li[1]/a"
-				And   I should be on "arizona-diamondbacks-tickets"
+				Then  I should see "Tickets to any live event in one search"
+				And   I follow "MLB"
+				Then  I follow "Arizona Diamondbacks"
+				And   I should see "Arizona Diamondbacks tickets"
 				Then  I check if events are available for current perfomer 				
 				Then  I should see 30 "#teamSchedule div.row-fluid.tickets div.span12.margin-top-mobile-20px div.list-box" elements
 				Then  I should see 2 "#load_more1" element

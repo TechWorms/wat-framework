@@ -4,9 +4,10 @@ Feature: Event Page
         
 		Scenario: View From Seat
             Given I am on Fanxchange
-			Then  I press "NFL" button with xpath "//*[@id='closepls']/div[1]/div/div/div/ul/li[1]/a"
-			Then  I press "Arizona Cardinals" button with xpath "//*[@id='closepls']/div[1]/div/div/div/ul/li[1]/ul/li[1]/a"
-			Then  I should be on "arizona-cardinals-tickets"
+            Then  I should see "Tickets to any live event in one search"
+		Then  I follow "NFL"
+		Then  I follow "Arizona Cardinals"
+		Then  I should see "Arizona Cardinals tickets"
             Then  I press "GET TICKETS" button with xpath "//*[@id='teamSchedule']/div[1]/div/div[1]/div[2]/div[2]/a"
             Then  I check if tickets are available for the current event
             Then  I should see an "MapContainer" element

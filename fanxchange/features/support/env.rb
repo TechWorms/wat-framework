@@ -8,6 +8,7 @@ INDEX_OFFSET = 0
 WEBDRIVER = true
 
 Before do
+ browser.driver.manage.timeouts.implicit_wait = 60
  @browser = browser
  browser.window.resize_to(1360, 768)
 end

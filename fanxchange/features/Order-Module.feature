@@ -1,14 +1,17 @@
-@fanx2.2 @order @suite
+@order @suite
 Feature: Cupon Codes Discounts
 
-
+			@sec
 			Scenario: Discount amount is bigger than the grand total
-				Given I am logged in as "wattest3@gmail.com" with password "testme2012"
-				And   I press "MLB" button with xpath "//header/div[1]/div/div/div/ul/li[2]/a"
-				Then  I press "Boston Red Sox" button with xpath "//header/div[1]/div/div/div/ul/li[2]/ul/li[10]/a"
-				Then  I should be on "boston-red-sox-tickets"
-				Then  I press "GET TICKETS" button with xpath "//*[@id='teamSchedule']/div[1]/div/div[3]/div[2]/div[2]/a"
-				Then  I press "Go" button with xpath "//*[@id='InventoryContainer']/div[2]/div/table/tbody/tr[1]/td[2]/div[2]/input"
+				Given I am on Fanxchange
+				Then  I should see "Tickets to any live event in one search"
+			    And   I login as seller
+			    Then  I should see "Hi Seller"
+				And   I follow "MLB"
+				Then  I follow "Boston Red Sox"
+				Then  I should see "Boston Red Sox tickets"
+				Then  I go to the 0 displayed event
+				Then  I press "Go"
 				Then  I should see "Step 1 - Order Form"
 				Then  I should see "Enter Member Pass Code"
 				Then  I should see "Enter AIR MILES eVoucher"
