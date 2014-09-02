@@ -100,6 +100,11 @@ Then(/^I select "(.*)" from "(.*)"$/) do |sele, seler|
   @browser.select_list(:id => seler).select_value sele
 end
 
+Then(/^I select team "(.*?)" from "(.*?)"$/) do |sele, seler|
+  @browser.select_list(:id => seler).select sele
+end
+
+
 Then(/^I open the connection$/) do
   dil = @browser.element(:class => 'button').span
   dil.click
@@ -173,3 +178,29 @@ Then(/^I should see available tickets with "(.*)" or more quantity value$/) do |
   puts val6
 end
 
+Then(/^I there are more than 30 events , check the Load More button is present$/) do
+  disevents = @browser.divs(:class => 'list-box').size
+  puts "Currently displayed events"
+  puts disevents
+  ldbtn = @browser.element(:id => 'load_more1', :index => 0).attribute_value("value")
+  puts "Button exists with"
+  puts ldbtn
+end
+
+Then(/^I check if tickets have Date and Time , Event Location and Venue , Sell Tickets Option , Get Tickets$/) do
+  dd = @browser.element(:class => 'date-date').text
+  tt = @browser.element(:class => 'time').text
+  eve = @browser.element(:class => /event-info/).text
+  sll = @browser.element(:class => 'list-box-right-mobile').div.a.text
+  get = @browser.element(:class => 'action').a.span.text
+  puts "Tickets Contain"
+  puts dd
+  puts tt
+  puts eve
+  puts sll
+  puts get
+end
+
+Then(/^I press "(.*?)" filter$/) do |arg1|
+  @browser.div(:class => 'span5').div.a.click
+end
