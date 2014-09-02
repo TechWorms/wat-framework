@@ -204,3 +204,16 @@ end
 Then(/^I press "(.*?)" filter$/) do |arg1|
   @browser.div(:class => 'span5').div.a.click
 end
+
+Then(/^I check my order total$/) do
+  totl = @browser.p(:class => /price_total_checkout/).text
+  puts totl
+end
+
+Then(/^I click Enter Member Pass Code$/) do
+  @browser.div(:class => 'accordion').div.a.click
+end
+
+Then(/^I click PROCEED TO CHECKOUT$/) do
+  @browser.input(:class => 'fanx-btn-checkout').click
+end

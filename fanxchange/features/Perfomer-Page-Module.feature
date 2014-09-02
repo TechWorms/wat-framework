@@ -26,7 +26,7 @@ Feature: Perfomer Page / Filters / Events
 				And   I follow "NFL"
 				Then  I follow "Buffalo Bills"
 			    Then  I check if tickets have Date and Time , Event Location and Venue , Sell Tickets Option , Get Tickets
-			@load
+			    
 			Scenario: On performer page , I should be able to filter events by: Schedule , Opposing Team and Date
 				Given I am on Fanxchange
 				Then  I should see "Tickets to any live event in one search"
