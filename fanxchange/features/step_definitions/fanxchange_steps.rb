@@ -21,8 +21,11 @@ Then(/^I should see an element with class "(.*)"$/) do |eleclass|
   @browser.element(:class => eleclass).exists?
 end
 
+Then(/^I should see an element with id "(.*?)"$/) do |eleid|
+  @browser.element(:id => eleid).exists?
+end
 
-Then(/^I should see an "(.*?)" input element$/) do |iE|
+Then(/^I should see an "(.*)" input element$/) do |iE|
   @browser.input(:id => iE).wait_until_present
 end
 
@@ -109,6 +112,11 @@ Then(/^I check if displayed popular events are shown for future events$/) do
   end
 end
 
+Then(/^I check if perfomer has events$/) do
+  tic = @browser.a(:id => 'tickets').span.text
+  puts tic
+end
+
 Then(/^I should see drop down results for search query$/) do
   puts "Perfomers"
   pf1 = @browser.element(:class => "ui-menu-item", :index => 0).text
@@ -134,4 +142,19 @@ Given(/^I login as seller$/) do
     Watir::Wait.until { @browser.text.include? "Hi Seller" }
 end
 
+Then(/^I filter tickets for "(.*)"$/) do |flrt|
+   @browser.span(:text => flrt).click
+end
+
+Then(/^I should see available tickets for "(.*)"$/) do |avati|
+  Watir::Wait.until { @browser.span(:class => 'section').text.include? avati }
+end
+
+Then(/^I check "(.*)"$/) do |chk|
+   @browser.checkbox(:id => chk).set
+end
+
+Then(/^I should see available tickets with "(.*?)" value$/) do |val|
+  Watir::Wait.until { @browser.span(:class => 'details').text.include? val }
+end
 
