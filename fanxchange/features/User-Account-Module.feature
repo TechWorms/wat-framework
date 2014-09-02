@@ -10,7 +10,6 @@ Feature: Valid Login credentials
 			And   I fill in "passwordL inputError" with "testme2012"
 			And   I press "Sign in"
 			And   I wait for element "dropdown-toggle"
-			Then  I follow "Hi Wat"
 			And   I should see "Hi Wat"
 
 			Scenario: As a user , I should be able to see and access the menu options 

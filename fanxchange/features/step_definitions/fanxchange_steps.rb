@@ -38,7 +38,7 @@ Then(/^I follow "(.*)"$/) do |link|
 end
 
 Then(/^I fill in "(.*)" with "(.*)"$/) do |arg1, arg2|
-  @browser.text_field(:id => arg1).set arg2
+  @browser.text_field(:id => /arg1$/).set arg2
 end
 
 Then(/^I press "(.*)"$/) do |butt|
@@ -147,6 +147,14 @@ Given(/^I login as seller$/) do
     Watir::Wait.until { @browser.text.include? "Hi Seller" }
 end
 
+Given(/^I login as buyer$/) do   
+    @browser.link(:text => 'SIGN IN').click
+    @browser.text_field(:class => 'emailL_field').set 'wattest4@gmail.com'
+    @browser.text_field(:class => 'passwordL_field').set 'testme2012'
+    @browser.button(:value => 'Sign in').click
+    Watir::Wait.until { @browser.text.include? "Hi Buyer" }
+end
+
 Then(/^I filter tickets for "(.*)"$/) do |flrt|
    @browser.span(:text => flrt).click
 end
@@ -214,6 +222,30 @@ Then(/^I click Enter Member Pass Code$/) do
   @browser.div(:class => 'accordion').div.a.click
 end
 
-Then(/^I click PROCEED TO CHECKOUT$/) do
-  @browser.input(:class => 'fanx-btn-checkout').click
+Then(/^I click "(.*)"$/) do |clckb|
+  @browser.input(:value => clckb).click
+end
+
+Then(/^I sell tickets for the (\d+) event$/) do |evnd|
+  @browser.link(:text => 'Sell Tickets', :index => evnd.to_i).click
+end
+
+Then(/^I select Yes, I have already the tickets\.$/) do
+  @browser.radio(:class => 'have_ticket').set
+end
+
+Then(/^I select Ship hard tickets by FedEx$/) do
+  @browser.radio(:value => 'hardticket').set
+end
+
+Then(/^I select General Admission$/) do
+  @browser.radio(:id => 'general_admission').set
+end
+
+Then(/^I select None, sell all my tickets together.$/) do
+  @browser.radio(:id => 'all_tickets_together').set
+end
+
+Then(/^I check my payout$/) do
+  p @browser.element(:class => 'dl-horizontal', :index => 1).text
 end

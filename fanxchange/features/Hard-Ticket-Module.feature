@@ -1,64 +1,31 @@
 @hardtickets @suite
 Feature: Hard Tickets
-
-				Scenario: Confirm Order
-			        Given I am logged in as "wattest3@gmail.com" with password "testme2012"
-	                Then  I press "Hi Wat" button with xpath "//*[@id='closepls']/div[1]/div/div/div/div/div/ul/li/a"
-			        Then  I should see "My Tickets Sold"
-			        And   I press "My Tickets Sold" button with xpath "//*[@id='closepls']/div[1]/div/div/div/div/div/ul/li/ul/li[5]/a"
-			        Then  I should be on "account/ticketssold"
-			        And   I should see list of tickets sold
-			        Then  I should see "Pending"
-			        Then  I press "View" button with xpath "//*[@id='event_container']/tr[1]/td[9]/button"
-			        Then  I should see "Cancel Sale"
-			        Then  I press "Confirm" button with xpath "//div[1]/div/div[2]/div[2]/div/div/table/tbody/tr[2]/td/div/div[3]/div[2]/div/div/button"
-                
-				 Scenario: Create AirBill
-				 	Given I am logged in as "wattest3@gmail.com" with password "testme2012"
-	                Then  I press "Hi Wat" button with xpath "//*[@id='closepls']/div[1]/div/div/div/div/div/ul/li/a"
-			        Then  I should see "My Tickets Sold"
-			        And   I press "My Tickets Sold" button with xpath "//*[@id='closepls']/div[1]/div/div/div/div/div/ul/li/ul/li[5]/a"
-			        Then  I should be on "account/ticketssold"
-			        Then  I should see "Status Processed"
-			        Then  I press "View" button with xpath "//*[@id='detailsHidden_EG912']/td/div/div[3]/div[2]/div/form/button"
-			        Then  I fill in "waybill_create" with "07152014"
-			        Then  I press "Create Airbill" button with xpath "//*[@id='detailsHidden_EG912']/td/div/div[3]/div[2]/div/form/button"
-                
-				Scenario: Users cannot Create Airbill for cancelled orders
-					Given I am logged in as "wattest3@gmail.com" with password "testme2012"
-	                Then  I press "Hi Wat" button with xpath "//*[@id='closepls']/div[1]/div/div/div/div/div/ul/li/a"
-			        Then  I should see "My Tickets Sold"
-			        And   I press "My Tickets Sold" button with xpath "//*[@id='closepls']/div[1]/div/div/div/div/div/ul/li/ul/li[5]/a"
-			        Then  I should be on "account/ticketssold"
-			        Then  I should see "Status Processed"
-			        Then  I press "View" button with xpath "//*[@id='detailsHidden_EG912']/td/div/div[3]/div[2]/div/form/button"
-			        Then  I fill in "waybill_create" with "07152014"
-			        Then  I press "Create Airbill" button with xpath "//*[@id='detailsHidden_EG912']/td/div/div[3]/div[2]/div/form/button"
-			        Then  I should see "Cannot create Airbill for expired tickets"
-
-		Scenario: Sell
-					Given I am logged in as "wattest3@gmail.com" with password "testme2012"
-					Then  I press "MLB" button with xpath "//*[@id='closepls']/div[1]/div/div/div/ul/li[2]/a"
-					Then  I press "Toronto Blue Jays" button with xpath "//*[@id='closepls']/div[1]/div/div/div/ul/li[2]/ul/li[27]/a"
-					Then  I should be on "toronto-blue-jays-tickets"
-					Then  I press "Home" button with xpath "//*[@id='home']"
-					Then  I press "Sell Tickets" button with xpath "//*[@id='teamSchedule']/div[1]/div/div[4]/div[2]/div[1]/a"
+				@tk
+				Scenario: Sell
+					Given I am on Fanxchange
+					And   I login as seller
+					Then  I follow "MLB"
+					Then  I follow "Toronto Blue Jays"
+					Then  I should see "Toronto Blue Jays tickets"
+					Then  I press "Home"
+					Then  I should see "Toronto Blue Jays vs."
+					Then  I sell tickets for the 5 event
 					And   I should see "A few details we'll need to know."
-					Then  I press "Yes, I have already the tickets" button with xpath "//*[@id='have_ticket_radio_yes']"
-					Then  I press "Ship hard tickets by FedEx" button with xpath "//*[@id='ticket_deails_hardticket']"
-					Then  I press "General Admission" button with xpath "//*[@id='general_admission']"
-					Then  I fill in "quantity_details" with "100"
-					Then  I press "Sell in multiples of" button with xpath "//*[@id='multiple_of_radio']"
-					And   I press "GO TO STEP 3" button with xpath "//*[@id='ticket_details_form']/div[2]/div/div/input"
+					Then  I select Yes, I have already the tickets.
+					Then  I select Ship hard tickets by FedEx 
+					Then  I select General Admission 
+					Then  I fill in "quantity_details" with "4"
+					Then  I select None, sell all my tickets together.
+					And   I click "GO TO STEP 3"
 					And   I should see "It's your call. Set your rates!"
-					Then  I fill in "price[]" with "9.99"
-					Then  I fill in "sale_end[]" with "08012014"
-					Then  I press "GO TO STEP 4" button with xpath "//*[@id='submit_form']"
+					Then  I fill in "price_" with "1.40"
+					Then  I fill in "sale_end" with "09012014"
+					Then  I click "GO TO STEP 4"
 					Then  I should see "And now, for the best part. Tell us how to pay you!"
 					Then  I fill in "seccode" with "123"
-					Then  I press "GO TO STEP 5" button with xpath "//*[@id='next']"
+					Then  I click "GO TO STEP 5"
 					Then  I check "confirm"
-					Then  I press "LIST TICKETS" button with xpath "//*[@id='go_to_confirmation']"
+					Then  I click "LIST TICKETS"
 					And   I should see "CONGRATULATIONS! Your ticket(s) is/are listed!"
 					Then  I check my payout
 
@@ -116,3 +83,17 @@ Feature: Hard Tickets
 					And   I should see "Inbox"
 					Then  I should see "Congratulations! Your Tickets Have Been Sent."
 					Then  I should see "Congratulations! Your Order Has Been Confirmed"
+                
+				Scenario: Users cannot Create Airbill for cancelled orders
+					Given I am logged in as "wattest3@gmail.com" with password "testme2012"
+	                Then  I press "Hi Wat" button with xpath "//*[@id='closepls']/div[1]/div/div/div/div/div/ul/li/a"
+			        Then  I should see "My Tickets Sold"
+			        And   I press "My Tickets Sold" button with xpath "//*[@id='closepls']/div[1]/div/div/div/div/div/ul/li/ul/li[5]/a"
+			        Then  I should be on "account/ticketssold"
+			        Then  I should see "Status Processed"
+			        Then  I press "View" button with xpath "//*[@id='detailsHidden_EG912']/td/div/div[3]/div[2]/div/form/button"
+			        Then  I fill in "waybill_create" with "07152014"
+			        Then  I press "Create Airbill" button with xpath "//*[@id='detailsHidden_EG912']/td/div/div[3]/div[2]/div/form/button"
+			        Then  I should see "Cannot create Airbill for expired tickets"
+
+		
