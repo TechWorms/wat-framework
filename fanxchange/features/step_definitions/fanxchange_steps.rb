@@ -158,3 +158,18 @@ Then(/^I should see available tickets with "(.*?)" value$/) do |val|
   Watir::Wait.until { @browser.span(:class => 'details').text.include? val }
 end
 
+Then(/^I should see available tickets with "(.*)" or more quantity value$/) do |arg1|
+  val1 = @browser.element(:class => 'selectqty', :index => 0).option.text
+  val2 = @browser.element(:class => 'selectqty', :index => 1).option.text
+  val3 = @browser.element(:class => 'selectqty', :index => 2).option.text
+  val4 = @browser.element(:class => 'selectqty', :index => 3).option.text
+  val5 = @browser.element(:class => 'selectqty', :index => 4).option.text
+  val6 = @browser.element(:class => 'selectqty', :index => 5).option.text
+  puts val1
+  puts val2
+  puts val3
+  puts val4
+  puts val5
+  puts val6
+end
+

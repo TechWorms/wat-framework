@@ -38,7 +38,7 @@ Feature: Event Page
             Then  I check if tickets are available for the current event
             Then  I should see an "eTicketFilter" input element
             Then  I check "eTicketFilter"
-            Then  I should see "E-ticket&nbsp;&nbsp;"
+            Then  I should see "E-ticket"
             And   I should see available tickets with "E-ticket  " value
             Then  I select "3+" from "TicketQuantity"
-            And   I should see available tickets with "3" quantity value
+            And   I should see available tickets with "3" or more quantity value
