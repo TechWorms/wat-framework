@@ -38,7 +38,7 @@ Then(/^I follow "(.*)"$/) do |link|
 end
 
 Then(/^I fill in "(.*)" with "(.*)"$/) do |arg1, arg2|
-  @browser.text_field(:id => /arg1$/).set arg2
+  @browser.text_field(:id => arg1).set arg2
 end
 
 Then(/^I press "(.*)"$/) do |butt|
@@ -247,5 +247,18 @@ Then(/^I select None, sell all my tickets together.$/) do
 end
 
 Then(/^I check my payout$/) do
-  p @browser.element(:class => 'dl-horizontal', :index => 1).text
+  pyo = @browser.element(:class => 'dl-horizontal', :index => 1).text
+  puts pyo
+end
+
+Then(/^I set the price for the tickets to "(.*)"$/) do |ptik|
+  @browser.text_field(:class => 'selling_price').set ptik
+end
+
+Then(/^I set the end date of the sale to "(.*)"$/) do |dtik|
+  @browser.text_field(:class => 'sale_end_date').set dtik
+end
+
+Then(/^I set security code with "(.*)"$/) do |secc|
+  @browser.text_field(:name => 'seccode').set secc
 end
