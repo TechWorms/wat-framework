@@ -39,7 +39,7 @@ Feature: Hard Tickets
 					Then  I should see "Toronto Blue Jays tickets"
 					Then  I press "Home"
 					Then  I should see "Toronto Blue Jays vs."
-					Then  I go to the 5 displayed event
+					Then  I go to the 4 displayed event
 					Then  I should see "1475 tickets available"
 					Then  I press "Go"
 					Then  I should see "Step 1 - Order Form"
@@ -82,7 +82,7 @@ Feature: Hard Tickets
 			        Then  I press "Print Airbill" button with xpath "//div[1]/div/div[2]/div[2]/div/div/table/tbody/tr[2]/td/div/div[3]/div[2]/div/div/button"
 
 			Scenario: Asses order e-mail confirmation
-					Given I am on "http://gmail.com"
+					Given I navigate to "http://gmail.com"
 					Then  I fill in "Email" with "fanxchangedev@gmail.com"
 					And   I fill in "Passwd" with "f@nxchang3"
 					Then  I press "signIn"

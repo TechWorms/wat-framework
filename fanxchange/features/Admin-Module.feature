@@ -1,16 +1,15 @@
-@fanx2.3 @fanx2.4 @admin
+@admin
 Feature: Admin Panel
 
 		Scenario: Order History table
-			Given I am on "http://staging.admin.fanxchange.com/"
+			Given I navigate to "http://staging.admin.fanxchange.com/"
 			And   I fill in "email_address" with "remus.copil@voicemailtel.com"
 			And   I fill in "password" with "dontletmedown123"
-			Then  I press "Submit" button with xpath "//*[@id='loginpanel']/table/tbody/tr[3]/td/input"
-			Then  I accept the modal
+			Then  I press "Submit"
 			Then  I should see "Logged in (Fanx Staff Level)"
 			Then  I follow "Orders"
 			Then  I should see "Orders"
-			Then  I press "Order Details" button with xpath "//*[@id='midWrapper']/table/tbody/tr/td[2]/table/tbody/tr[2]/td/table/tbody/tr/td[2]/table[2]/tbody/tr[1]/td/a[1]/span"
+			Then  I press on first order
 			Then  I should see "Order History"
 			Then  I should see "Date Added" 
 			Then  I should see "Customer Notified"
