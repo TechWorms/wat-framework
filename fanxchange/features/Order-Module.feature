@@ -25,7 +25,7 @@ Feature: Cupon Codes Discounts
 				Then  I select "11" from "exp_month"
 				Then  I select "22" from "exp_year"
  				Then  I fill in "seccode" with "123"
-				Then  I click PROCEED TO CHECKOUT
+				Then  I click "proceed to checkout"
 				And   I should see "Step 2 - Order Confirmation"
 				Then  I check my order total
 
@@ -52,7 +52,7 @@ Feature: Cupon Codes Discounts
 				Then  I select "11" from "exp_month"
 				Then  I select "22" from "exp_year"
  				Then  I fill in "seccode" with "123"
-				Then  I click PROCEED TO CHECKOUT
+				Then  I click "proceed to checkout"
 				And   I should see "Step 2 - Order Confirmation"
 				Then  I check my order total
 
@@ -79,6 +79,6 @@ Feature: Cupon Codes Discounts
 				Then  I select "11" from "exp_month"
 				Then  I select "22" from "exp_year"
  				Then  I fill in "seccode" with "123"
-				Then  I click PROCEED TO CHECKOUT
+				Then  I click "proceed to checkout"
 				And   I should see "Step 2 - Order Confirmation"
 				Then  I check my order total

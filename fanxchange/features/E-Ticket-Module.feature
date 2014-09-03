@@ -1,4 +1,4 @@
-@fanx1.8 @etickets @suite
+@fanx1.8 @etickets
 Feature: E-Tickets
         
         

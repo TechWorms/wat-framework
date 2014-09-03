@@ -262,3 +262,24 @@ end
 Then(/^I set security code with "(.*)"$/) do |secc|
   @browser.text_field(:name => 'seccode').set secc
 end
+
+Then(/^I search for previously created user accounts$/) do
+  @browser.div(:id => 'site_settings_filter').text_field.set 'Credentials'
+end
+
+Then(/^I retrieve the found accounts$/) do
+  acc = @browser.element(:id => 'change_results').text
+  puts acc
+end
+
+Then(/^I press admin tool Site Settings$/) do
+  @browser.span(:class => 'hidden-tablet', :index => 0).click
+end
+
+Then(/^I delete the test accounts 1$/) do
+  @browser.element(:id => 'change_results').a(:index => 0).click
+end
+
+Then(/^I delete the test accounts 2$/) do
+  @browser.element(:id => 'change_results').a(:index => 1).click
+end

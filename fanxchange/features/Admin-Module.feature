@@ -1,4 +1,4 @@
-@fanx2.3 @fanx2.4 @admin @suite
+@fanx2.3 @fanx2.4 @admin
 Feature: Admin Panel
 
 		Scenario: Order History table
