@@ -1,5 +1,6 @@
 Given(/^I am on Fanxchange$/) do
-  @browser.goto "https://devteam:xkc2nXV8@staging.www.fanxchange.com"
+  #@browser.goto "https://devteam:xkc2nXV8@staging.www.fanxchange.com"
+  @browser.goto "www.fanxchange.com"
 end
 
 Then(/^Once the page is loaded$/) do
@@ -14,7 +15,7 @@ Then(/^The title should be FanXchange$/) do
 end
 
 Then(/^I should see "(.*)"$/) do |text|
-  Watir::Wait.until { @browser.text.include? text } 
+ @browser.text.include? text
 end
 
 Then(/^I should see event details$/) do
@@ -151,7 +152,6 @@ Given(/^I login as seller$/) do
     @browser.text_field(:class => 'emailL_field').set 'wattest3@gmail.com'
     @browser.text_field(:class => 'passwordL_field').set 'testme2012'
     @browser.button(:value => 'Sign in').click
-    Watir::Wait.until { @browser.text.include? "Hi Seller" }
 end
 
 Given(/^I login as buyer$/) do   
@@ -159,7 +159,6 @@ Given(/^I login as buyer$/) do
     @browser.text_field(:class => 'emailL_field').set 'wattest4@gmail.com'
     @browser.text_field(:class => 'passwordL_field').set 'testme2012'
     @browser.button(:value => 'Sign in').click
-    Watir::Wait.until { @browser.text.include? "Hi Buyer" }
 end
 
 Then(/^I filter tickets for "(.*)"$/) do |flrt|
