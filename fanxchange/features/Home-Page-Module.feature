@@ -41,30 +41,29 @@ Feature: FANX-1.0 / FANX-1.1 / FANX-1.2 / FANX-1.4 / FANX-2.6
                  Then  I should see "New York"
                  And   The events displayed should match the location for upcoming events
                  And   I check that the tickets displayed do not have past dates
-          
+          @ter
           Scenario: No upcoming events without tickets available.
                  Given I am on Fanxchange
                  Then  I should see "Upcoming Events"
                  Then  I should see 5 events displayed
                  Then  I go to the 0 displayed event
-                 Then  I should see "tickets available"
+                 Then  I should see event details
                  Then  I check if tickets are available for the current event
                  Then  I go back
-                 And   I should see "Upcoming Events"
                  Then  I go to the 1 displayed event
-                 Then  I should see "tickets available"
+                 Then  I should see event details
                  Then  I check if tickets are available for the current event
                  Then  I go back
                  Then  I go to the 2 displayed event
-                 Then  I should see "tickets available"
+                 Then  I should see event details
                  Then  I check if tickets are available for the current event
                  Then  I go back
                  Then  I go to the 3 displayed event
-                 Then  I should see "tickets available"
+                 Then  I should see event details
                  Then  I check if tickets are available for the current event
                  Then  I go back
                  Then  I go to the 4 displayed event
-                 Then  I should see "tickets available"
+                 Then  I should see event details
                  Then  I check if tickets are available for the current event
                  
           Scenario: There should be at least 3 popular events displayed at all time. Popular events should not contain events from past dates.

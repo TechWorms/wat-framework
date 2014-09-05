@@ -8,6 +8,7 @@ require 'headless'
 headless = Headless.new
 headless.start
 browser = Watir::Browser.new
+Watir.default_timeout = 90
 INDEX_OFFSET = 0
 WEBDRIVER = true
 
@@ -15,11 +16,9 @@ Before do
  @browser = browser
 end
 
-Before do |scenario|
-  @browser.cookies.clear
-  @browser.driver.manage.timeouts.implicit_wait = 60
-  @browser.window.resize_to(1360, 768)
-end
+# Before do |scenario|
+#   @browser.cookies.clear
+# end
 
 at_exit do 
 	browser.close

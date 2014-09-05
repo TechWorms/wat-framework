@@ -14,8 +14,14 @@ Then(/^The title should be FanXchange$/) do
 end
 
 Then(/^I should see "(.*)"$/) do |text|
-  Watir::Wait.until { @browser.text.include? text }
+  Watir::Wait.until { @browser.text.include? text } 
 end
+
+Then(/^I should see event details$/) do
+  txt = @browser.p(:class => 'subtitle').when_present(120).text
+  puts txt
+end
+
 
 Then(/^I should see an element with class "(.*)"$/) do |eleclass|
   @browser.element(:class => eleclass).exists?
@@ -78,8 +84,9 @@ Then(/^I check that the tickets displayed do not have past dates$/) do
 end
 
 Then(/^I go to the (\d+) displayed event$/) do |evnr|
- lnk = @browser.element(:class => "action", :index => evnr.to_i).a
- lnk.click
+ #lnk = @browser.element(:class => "action", :index => evnr.to_i).a
+ lnk1 = @browser.element(:title => 'View', :index=> evnr.to_i)
+ Watir::Wait.until { lnk1.click }
 end
 
 Then(/^I check if tickets are available for the current event$/) do
