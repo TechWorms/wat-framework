@@ -39,7 +39,7 @@ Feature: Hard Tickets
 					Then  I should see "Toronto Blue Jays tickets"
 					Then  I press "Home"
 					Then  I should see "Toronto Blue Jays vs."
-					Then  I go to the 4 displayed event
+					Then  I go to the 4ls displayed event
 					Then  I should see "1475 tickets available"
 					Then  I press "Go"
 					Then  I should see "Step 1 - Order Form"
