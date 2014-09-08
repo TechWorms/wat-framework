@@ -9,6 +9,7 @@ Feature: FANX-1.0 / FANX-1.1 / FANX-1.2 / FANX-1.4 / FANX-2.6
           
           Scenario: Homepage Header and FanXchange Logo
                  Given I am on Fanxchange
+                 Then  Once the page is loaded
                  Then  I should see "Tickets to any live event in one search"
                  And   I should see an element with class "navbar" 
                  And   I should see an element with class "logo-fanx"
@@ -36,6 +37,7 @@ Feature: FANX-1.0 / FANX-1.1 / FANX-1.2 / FANX-1.4 / FANX-2.6
           
           Scenario: Upcoming events should be displayed based on my location , I should see a number of 5 Upcoming Events 
                  Given I am on Fanxchange
+                 Then  Once the page is loaded
                  Then  I should see "Upcoming Events"
                  Then  I should see 5 events displayed 
                  Then  I should see "New York"
@@ -44,24 +46,29 @@ Feature: FANX-1.0 / FANX-1.1 / FANX-1.2 / FANX-1.4 / FANX-2.6
           @ter
           Scenario: No upcoming events without tickets available.
                  Given I am on Fanxchange
+                 Then  Once the page is loaded
                  Then  I should see "Upcoming Events"
                  Then  I should see 5 events displayed
                  Then  I go to the 0 displayed event
                  Then  I should see event details
                  Then  I check if tickets are available for the current event
                  Then  I go back
+                 Then  Once the page is loaded
                  Then  I go to the 1 displayed event
                  Then  I should see event details
                  Then  I check if tickets are available for the current event
                  Then  I go back
+                 Then  Once the page is loaded
                  Then  I go to the 2 displayed event
                  Then  I should see event details
                  Then  I check if tickets are available for the current event
                  Then  I go back
+                 Then  Once the page is loaded
                  Then  I go to the 3 displayed event
                  Then  I should see event details
                  Then  I check if tickets are available for the current event
                  Then  I go back
+                 Then  Once the page is loaded
                  Then  I go to the 4 displayed event
                  Then  I should see event details
                  Then  I check if tickets are available for the current event
@@ -177,6 +184,7 @@ Feature: FANX-1.0 / FANX-1.1 / FANX-1.2 / FANX-1.4 / FANX-2.6
     
     Scenario: Change location by postal code
       Given I am on Fanxchange
+      Then  Once the page is loaded
       Then  I should see "Upcoming Events"
       Then  I follow "Change Location"
       Then  I fill in "zip" with "M4C1S2"
@@ -185,6 +193,7 @@ Feature: FANX-1.0 / FANX-1.1 / FANX-1.2 / FANX-1.4 / FANX-2.6
     
     Scenario: Change location by city
       Given I am on Fanxchange
+      Then  Once the page is loaded
       Then  I should see "Upcoming Events"
       Then  I follow "Change Location"
       Then  I fill in "city" with "New York"
@@ -193,6 +202,7 @@ Feature: FANX-1.0 / FANX-1.1 / FANX-1.2 / FANX-1.4 / FANX-2.6
 
     Scenario: Change location by city with no events
       Given I am on Fanxchange
+      Then  Once the page is loaded
       Then  I should see "Upcoming Events"
       Then  I follow "Change Location"
       Then  I fill in "city" with "Prac"
@@ -202,6 +212,7 @@ Feature: FANX-1.0 / FANX-1.1 / FANX-1.2 / FANX-1.4 / FANX-2.6
     
     Scenario: Change location by city and province
       Given I am on Fanxchange
+      Then  Once the page is loaded
       Then  I should see "Upcoming Events"
       Then  I follow "Change Location"
       Then  I fill in "city" with "New York"
@@ -214,5 +225,6 @@ Feature: FANX-1.0 / FANX-1.1 / FANX-1.2 / FANX-1.4 / FANX-2.6
       Then  I fill in "address" with "http://www.fanxchange.com"
       And   I select "dallas.proxylistpro.com" from "select-location"
       Then  I open the connection
+      Then  Once the page is loaded
       Then  I should see "Upcoming Events"
       And   The events displayed should match the location for upcoming events

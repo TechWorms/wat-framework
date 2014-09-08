@@ -1,10 +1,13 @@
 Given(/^I am on Fanxchange$/) do
-  #@browser.goto "https://devteam:xkc2nXV8@staging.www.fanxchange.com"
-  @browser.goto "www.fanxchange.com"
+ @browser
+ @browser.goto "https://devteam:xkc2nXV8@staging.www.fanxchange.com"
+ load = @browser.div(:class => 'logo-fanx').wait_until_present
 end
 
 Then(/^Once the page is loaded$/) do
-  @browser.div(:class => 'logo-fanx').wait_until_present
+  Watir::Wait.until { @browser.div(:class => 'logo-fanx').exists?  }
+  Watir::Wait.until { @browser.div(:class => 'logo-fanx').visible?  }
+  sleep(30)
 end
 
 Then(/^The title should be FanXchange$/) do
@@ -41,7 +44,7 @@ Then(/^The search placeholder should contain Search by Team, Artist, Event, Date
 end
 
 Then(/^I follow "(.*)"$/) do |link|
-  @browser.link(:text => link).click
+  Watir::Wait.until(120) { @browser.link(:text => link).click }
 end
 
 Then(/^I fill in "(.*)" with "(.*)"$/) do |arg1, arg2|
@@ -85,9 +88,10 @@ Then(/^I check that the tickets displayed do not have past dates$/) do
 end
 
 Then(/^I go to the (\d+) displayed event$/) do |evnr|
- #lnk = @browser.element(:class => "action", :index => evnr.to_i).a
- lnk1 = @browser.element(:title => 'View', :index=> evnr.to_i)
- Watir::Wait.until { lnk1.click }
+if @browser.element(:class => "action", :index => evnr.to_i).a.exists? == true
+  then
+     @browser.element(:class => "action", :index => evnr.to_i).a.click
+   end
 end
 
 Then(/^I check if tickets are available for the current event$/) do
@@ -96,8 +100,7 @@ Then(/^I check if tickets are available for the current event$/) do
 end
 
 Then(/^I go back$/) do
-  @browser.back
-  @browser.div(:class => 'container').wait_until_present 
+  Watir::Wait.until(180) { @browser.back }
 end
 
 Given(/^I navigate to "(.*)"$/) do |uri|
@@ -120,8 +123,8 @@ end
 
 Then(/^I check if displayed popular events are shown for future events$/) do
   puts "Dates for current popular events displayed:"
-  @browser.ps(:class => "popular-event-details-limit-chars").each  do |div|   
-    puts div.text if div.exists?
+  @browser.ps(:class => "popular-event-details-limit-chars").each do |divivo|   
+    puts divivo.text if divivo.exists?
   end
 end
 

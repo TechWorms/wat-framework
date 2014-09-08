@@ -28,6 +28,7 @@ Feature: FANX-1.3
             Then  I should see an "search" input element
             And   The search placeholder should contain Search by Team, Artist, Event, Date or Venue
             Then  I fill in "search" with "Toronto"
+            Then  Once the page is loaded
             Then  I should see "Performers"
             Then  I should see "Events"
             Then  I should see drop down results for search query
@@ -40,6 +41,7 @@ Feature: FANX-1.3
             Then  I should see "Tickets to any live event in one search"
             And   I follow "Concerts"
             Then  I follow "Beyonce"
+            Then  Once the page is loaded
             Then  I fill in "search" with "Toronto"
             Then  I should see "Performers"
             Then  I should see "Events"
