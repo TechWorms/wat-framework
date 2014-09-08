@@ -1,6 +1,6 @@
-require 'rubygems'
 require 'watir-webdriver'
 require 'watir-webdriver/wait'
+require 'watir-dom-wait'
 require 'rspec'
 require 'headless'
 # switches = ['--ignore-ssl-errors=yes'] 
