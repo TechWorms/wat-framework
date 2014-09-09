@@ -12,7 +12,7 @@ Feature: Event Page
             Then  I go to the first displayed event for Arizona Cardinals
             Then  I check if tickets are available for the current event
             Then  I should see the Map Container element
-            
+        
         Scenario: Section Picker
             Given I am testing Event Features on Fanxchange
             Then  Once the page is loaded
@@ -21,14 +21,12 @@ Feature: Event Page
             Then  I follow Buffalo Bills
             Then  Once the page is loaded
             Then  I check if perfomer Buffalo Bills has events
-            Then  I go to the third displayed event for Buffalo Bills
+            Then  I go to the first displayed event for Buffalo Bills
             Then  Once the page is loaded
             Then  I check if tickets are available for the current event
             Then  I filter tickets on the map container section filter for Lower Level - Sideline
             And   I should see available tickets for Lower Level - Sideline
-            Then  I filter tickets on the map container section filter for Lower Level - Corner
-            And   I should see available tickets for Lower Level - Corner 
-        @last
+        
         Scenario: Filters
             Given I am testing Event Features on Fanxchange
             Then  Once the page is loaded

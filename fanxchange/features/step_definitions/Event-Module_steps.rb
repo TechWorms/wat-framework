@@ -34,9 +34,9 @@ Then(/^I check if perfomer Arizona Cardinals has events$/) do
 end
 
 Then(/^I go to the first displayed event for Arizona Cardinals$/) do
-  Watir::Wait.until { @browser.div(:class => 'action', :index => 1).a.exists?
-   @browser.div(:class => 'action', :index => 1).a.visible? }
+  Watir::Wait.until { @browser.div(:class => 'action', :index => 1).a.visible? }
    @browser.div(:class => 'action', :index => 1).a.click
+   sleep 10
 end
 
 Then(/^I check if tickets are available for the current event$/) do
@@ -50,8 +50,8 @@ Then(/^I should see the Map Container element$/) do
 end
 
 Then(/^I follow Buffalo Bills$/) do
-  Watir::Wait.until { @browser.link(:text => 'Arizona Cardinals').visible? }
-  @browser.link(:text => 'Arizona Cardinals').click
+  Watir::Wait.until { @browser.link(:text => 'Buffalo Bills').visible? }
+  @browser.link(:text => 'Buffalo Bills').click
 end
 
 Then(/^I check if perfomer Buffalo Bills has events$/) do
@@ -59,10 +59,10 @@ Then(/^I check if perfomer Buffalo Bills has events$/) do
   puts bfff
 end
 
-Then(/^I go to the third displayed event for Buffalo Bills$/) do
- Watir::Wait.until { @browser.div(:class => 'action', :index => 3).a.exists?
-   @browser.div(:class => 'action', :index => 3).a.visible? }
-   @browser.div(:class => 'action', :index => 3).a.click
+Then(/^I go to the first displayed event for Buffalo Bills$/) do
+ Watir::Wait.until { @browser.div(:class => 'action', :index => 1).a.visible? }
+   @browser.div(:class => 'action', :index => 1).a.click
+   sleep 10
 end
 
 Then(/^I filter tickets on the map container section filter for Lower Level \- Sideline$/) do
@@ -74,19 +74,11 @@ Then(/^I should see available tickets for Lower Level \- Sideline$/) do
   Watir::Wait.until {@browser.span(:class => 'section').when_dom_changed.text.include? 'Lower Level - Sideline'}
 end
 
-Then(/^I filter tickets on the map container section filter for Lower Level \- Corner$/) do
-  Watir::Wait.until { @browser.span(:text => 'Lower Level - Corner').visible? }
-  @browser.span(:text => 'Lower Level - Corner').when_dom_changed.click
-end
-
-Then(/^I should see available tickets for Lower Level \- Corner$/) do
-  Watir::Wait.until {@browser.span(:class => 'section').when_dom_changed.text.include? 'Lower Level - Corner'}
-end
 
 Then(/^I go to the fifth displayed event for Arizona Cardinals$/) do
-  Watir::Wait.until { @browser.div(:class => 'action', :index => 5).a.exists?
-   @browser.div(:class => 'action', :index => 5).a.visible? }
+  Watir::Wait.until { @browser.div(:class => 'action', :index => 5).a.visible? }
    @browser.div(:class => 'action', :index => 5).a.click
+   sleep 10
 end
 
 Then(/^I should see the E\-Ticket filter$/) do
@@ -109,7 +101,7 @@ Then(/^I select more than (\d+) from the quantity option$/) do |arg1|
   @browser.select_list(:id => 'TicketQuantity').select_value '3+'
 end
 
-Then(/^I should see only tickets that have more than (\d+)\+ available tickets for current event$/) do
+Then(/^I should see only tickets that have more than (\d+)\+ available tickets for current event$/) do |timeee|
   val1 = @browser.element(:class => 'selectqty', :index => 0).option.text
   val2 = @browser.element(:class => 'selectqty', :index => 1).option.text
   val3 = @browser.element(:class => 'selectqty', :index => 2).option.text
