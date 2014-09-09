@@ -31,6 +31,7 @@ Feature: FANX-1.3
             Then  I wait for drop down search results
             Then  I should see drop down results for search query
             Then  I click the first event in the search query
+            Then  Once the page is loaded
             And   I should see Toronto FC tickets
         
         Scenario: Search Query in sub page
@@ -43,4 +44,5 @@ Feature: FANX-1.3
             Then  I wait for drop down search results
             Then  I should see drop down results for search query
             Then  I click the first event in the search query
+            Then  Once the page is loaded
             And   I should see Toronto FC tickets
