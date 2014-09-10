@@ -165,7 +165,6 @@ end
 
 Then(/^I press open details for the last ticket sold$/) do
   @browser.button(:text => 'view', :index => 0).click
-  @browser.element(:id => /detailsHidden/).wait_until_present
 end
 
 Then(/^I should see two options: Cancel and Confirm$/) do
@@ -187,33 +186,35 @@ Then(/^My order should be confirmed$/) do
 end
 
 Then(/^I set the airbil date to (\d+)\-(\d+)\-(\d+)$/) do |arg1, arg2, arg3|
-  pending # express the regexp above with the code you wish you had
+  if @browser.text_field(:class => 'waybill_create_date').visible?
+    @browser.text_field(:class => 'waybill_create_date').set '09-17-2014'
+  end
 end
 
 Then(/^I Create the Airbill$/) do
-  pending # express the regexp above with the code you wish you had
+  @browser.button(:text => 'Create Airbill').click
+  sleep 5
 end
 
 Then(/^I should see the Tracking number of the order$/) do
-  pending # express the regexp above with the code you wish you had
+  Watir::Wait.until {@browser.span(:class => 'font-14').visible?}
+  hopls = @browser.span(:class => 'font-14').text
+  puts hopls
 end
 
 Then(/^I Print the Airbill$/) do
-  pending # express the regexp above with the code you wish you had
+  @browser.button(:text => 'Print Airbill').click
+  @browser.button(:text => 'Print Airbill').wait_until_present
 end
 
 Then(/^I should see My Inbox$/) do
-  pending # express the regexp above with the code you wish you had
+  Watir::Wait.until {@browser.text.include? 'Inbox'}
 end
 
 Then(/^I check for order confirmation e\-mail$/) do
-  pending # express the regexp above with the code you wish you had
+  Watir::Wait.until {@browser.text.include? 'Congratulations! Your Order Has Been Confirmed.'}
 end
 
 Then(/^I check for tickets sent confirmation e\-mail$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I should see "(.*?)"$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+  Watir::Wait.until {@browser.text.include? 'Congratulations! Your Tickets Have Been Sent.'}
 end

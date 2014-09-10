@@ -1,7 +1,7 @@
 @hardtickets @suite
 Feature: Sells Hard Tickets / Buys Hard Tickets / Confirms Hard Tickets / Checks for confirmations e-mails / Creates and Prints Airbill for sold tickets
-				@sell
-				Scenario: Sell
+				
+				Scenario: Sell Hard Tickets
 					Given I am testing Hard Ticket Features on Fanxchange
 					Then  Once the page is loaded
 					Then  I login as a Seller
@@ -35,8 +35,8 @@ Feature: Sells Hard Tickets / Buys Hard Tickets / Confirms Hard Tickets / Checks
 					Then  Once the page is loaded
 					Then  I should see CONGRATULATIONS! Your ticket(s) is/are listed!
 					Then  I check my payout
-			@buy
-			Scenario: Buy
+			
+			Scenario: Buy Hard Tickets
 					Given I am testing Hard Ticket Features on Fanxchange
 					Then  Once the page is loaded
 					And   I login as a Buyer
@@ -65,7 +65,7 @@ Feature: Sells Hard Tickets / Buys Hard Tickets / Confirms Hard Tickets / Checks
 				    And   I ORDER TICKETS
 				    Then  Once the page is loaded
 				    Then  I should see Thank you for placing your order with FanXchange.
-			@confirm
+			
 			Scenario: Confirm Order
 					Given I am testing Hard Ticket Features on Fanxchange
 					Then  Once the page is loaded
@@ -75,13 +75,12 @@ Feature: Sells Hard Tickets / Buys Hard Tickets / Confirms Hard Tickets / Checks
 			        Then  I should see My Tickets Sold
 			        And   I follow My Tickets Sold
 			        Then  I should be on My Tickets Sold page
-			        And   I should see list of tickets sold
 			        Then  I press open details for the last ticket sold
 			        And   I should see two options: Cancel and Confirm
 			        Then  I Confirm the ticket
 			        Then  Once the page is loaded
 			        Then  My order should be confirmed
-
+			      
 			Scenario: Create and Print Airbill
 					Given I am testing Hard Ticket Features on Fanxchange
 					Then  Once the page is loaded
@@ -92,31 +91,28 @@ Feature: Sells Hard Tickets / Buys Hard Tickets / Confirms Hard Tickets / Checks
 			        And   I follow My Tickets Sold
 			        Then  Once the page is loaded
 			        Then  I should be on My Tickets Sold page
-			        And   I should see list of tickets sold
 			        Then  I press open details for the last ticket sold
-			        Then  I set the airbil date to 11-02-2014			   
+			        Then  I set the airbil date to 09-17-2014			   
 			        Then  I Create the Airbill
-			        Then  I press open details for the last ticket sold
 			        And   I should see the Tracking number of the order
 			        Then  I Print the Airbill
-
+			
 			Scenario: Asses order e-mail confirmation
 					Given I login with Fanxchange Confirmation E-mail Address
-					Then  Once the page is loaded
 					Then  I should see My Inbox
-					And  I check for order confirmation e-mail
-					And  I check for tickets sent confirmation e-mail
+					And   I check for order confirmation e-mail
+					And   I check for tickets sent confirmation e-mail
                 
-				Scenario: Users cannot Create Airbill for cancelled orders
-					Given I am testing Hard Ticket Features on Fanxchange
-					Then  Once the page is loaded
-					Then  I login as a Seller
-					Then  I go to user drop down menu
-			        Then  I should see My Tickets Sold
-			        And   I follow My Tickets Sold
-			        Then  Once the page is loaded
-			        Then  I should be on My Tickets Sold page
-			        Then  I should see "Status Processed"
+				# Scenario: Users cannot Create Airbill for cancelled orders
+				# 	Given I am testing Hard Ticket Features on Fanxchange
+				# 	Then  Once the page is loaded
+				# 	Then  I login as a Seller
+				# 	Then  I go to user drop down menu
+			 #        Then  I should see My Tickets Sold
+			 #        And   I follow My Tickets Sold
+			 #        Then  Once the page is loaded
+			 #        Then  I should be on My Tickets Sold page
+			 #        Then  I should see Status Processed
 			       
 
 		

@@ -39,5 +39,9 @@ Then(/^I should be logged in and see Hi Remus$/) do
 end
 
 Given(/^I login with Fanxchange Confirmation E\-mail Address$/) do
-  pending # express the regexp above with the code you wish you had
+  @browser.goto "http://www.gmail.com"
+  @browser.text_field(:id => 'Email').set 'fanxchangedev@gmail.com'
+  @browser.text_field(:id => 'Passwd').set 'f@nxchang3'
+  @browser.input(:id => 'signIn').click
+  sleep 5
 end
