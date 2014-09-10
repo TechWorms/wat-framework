@@ -50,8 +50,8 @@ Feature: Checks that perfomer has 30 displayed results and button is present whe
 				Then  I should see Opposing Team filter
 				And   I select team Minnesota Vikings as opposing team
 				Then  I should see events with Minnesota Vikings
-				And   I select team Cincinnati Bengals as opposing team
-				Then  I should see events with Cincinnati Bengals
+				And   I select team Detroit Lions as opposing team
+				Then  I should see events with Detroit Lions
 				Then  I reset Opposing Team filter
 				Then  I press Schedule
 				Then  I select the Date filter

@@ -59,7 +59,7 @@ end
 
 Then(/^I press Home$/) do
   @browser.button(:id => 'home').click
-  sleep 3
+  @browser.div(:id =>'schedule_gif').wait_while_present
 end
 
 Then(/^I should see New England Patriots vs\.$/) do
@@ -68,7 +68,7 @@ end
 
 Then(/^I press Away$/) do
   @browser.button(:id => 'away').click
-  sleep 3
+  @browser.div(:id =>'schedule_gif').wait_while_present
 end
 
 Then(/^I should see vs\. New England Patriots$/) do
@@ -81,35 +81,34 @@ end
 
 Then(/^I select team Minnesota Vikings as opposing team$/) do
   @browser.select_list(:id => 'opposing_team').select 'Minnesota Vikings'
-  sleep 3
+  @browser.div(:id =>'schedule_gif').wait_while_present
 end
 
 Then(/^I should see events with Minnesota Vikings$/) do
   Watir::Wait.until {@browser.text.include? 'Minnesota Vikings'}
 end
 
-Then(/^I select team Cincinnati Bengals as opposing team$/) do
-  @browser.select_list(:id => 'opposing_team').select 'Cincinnati Bengals'
-  sleep 3
+Then(/^I select team Detroit Lions as opposing team$/) do
+  @browser.select_list(:id => 'opposing_team').select 'Detroit Lions'
+  @browser.div(:id =>'schedule_gif').wait_while_present
 end
 
-Then(/^I should see events with Cincinnati Bengals$/) do
-  Watir::Wait.until {@browser.text.include? 'Cincinnati Bengals'}
+Then(/^I should see events with Detroit Lions$/) do
+  Watir::Wait.until {@browser.text.include? 'Detroit Lions'}
 end
 
 Then(/^I reset Opposing Team filter$/) do
   @browser.select_list(:id => 'opposing_team').select 'Opposing Team'
-  sleep 3
+  @browser.div(:id =>'schedule_gif').wait_while_present
 end
 
 Then(/^I press Schedule$/) do
   @browser.button(:id => 'schedule').click
-  sleep 3
+  @browser.div(:id =>'schedule_gif').wait_while_present
 end
 
 Then(/^I select the Date filter$/) do
   @browser.a(:class => 'btn dropdown-toggle').click
-  sleep 1
 end
 
 Then(/^I set the from date to (\d+)\-(\d+)\-(\d+)$/) do |arg1, arg2, arg3|
@@ -121,11 +120,13 @@ Then(/^I set the to date to (\d+)\-(\d+)\-(\d+)$/) do |arg1, arg2, arg3|
 end
 
 Then(/^I press Refine Search$/) do
-  @browser.button(:text => ' Refine Search ')
+  @browser.button(:id => 'btnDateFilter').click
+  @browser.div(:id =>'schedule_gif').wait_while_present
 end
 
 Then(/^I should see events displayed for November$/) do
-  @browser.divs(:class => 'date').each do |evedis|
+ Watir::Wait.until {@browser.text.include? 'Clear'}
+ @browser.divs(:class => 'date').each do |evedis|
     puts evedis.text if evedis.present?
   end
 end
