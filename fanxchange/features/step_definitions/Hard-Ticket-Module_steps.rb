@@ -47,7 +47,7 @@ end
 
 Then(/^I set ticket quantity for (\d+)$/) do |arg1|
   Watir::Wait.until {@browser.text_field(:id => 'quantity_details').visible?}
-  @browser.text_field(:id => 'quantity_details').set '4'
+  @browser.text_field(:id => 'quantity_details').set '6'
 end
 
 Then(/^I use None, sell all my tickets together\.$/) do

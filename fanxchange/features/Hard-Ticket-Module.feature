@@ -18,12 +18,12 @@ Feature: Sells Hard Tickets / Buys Hard Tickets / Confirms Hard Tickets / Checks
 					Then  I use Yes, I have already the tickets.
 					Then  I use Ship hard tickets by FedEx 
 					Then  I use General Admission 
-					Then  I set ticket quantity for 4
+					Then  I set ticket quantity for 6
 					Then  I use None, sell all my tickets together.
 					And   I GO TO STEP Three
 					Then  Once the page is loaded
 					Then  I should see It's your call. Set your rates!
-					Then  I set the price tickets I want to sell to 1.40
+					Then  I set the price tickets I want to sell to 1.11
 					Then  I set the end date of the sale to 09-01-2014
 					Then  I GO TO STEP Four
 					Then  Once the page is loaded
@@ -53,7 +53,6 @@ Feature: Sells Hard Tickets / Buys Hard Tickets / Confirms Hard Tickets / Checks
 					Then  I check event for which i'm buying the tickets
 					Then  Once the page is loaded
 					Then  I should see Step 1 - Order Form
-					Then  I select Quebec from state
 					Then  I use card number: 4111111111111111
 				    Then  I user name on card: Remus Copil
 				    Then  I use expiry month: November
