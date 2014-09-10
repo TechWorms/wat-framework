@@ -1,5 +1,5 @@
 @hardtickets @suite
-Feature: Hard Tickets
+Feature: Sells Hard Tickets / Buys Hard Tickets / Confirms Hard Tickets / Checks for confirmations e-mails / Creates and Prints Airbill for sold tickets
 				@sell
 				Scenario: Sell
 					Given I am testing Hard Ticket Features on Fanxchange
@@ -53,6 +53,7 @@ Feature: Hard Tickets
 					Then  I check event for which i'm buying the tickets
 					Then  Once the page is loaded
 					Then  I should see Step 1 - Order Form
+					Then  I select Quebec from state
 					Then  I use card number: 4111111111111111
 				    Then  I user name on card: Remus Copil
 				    Then  I use expiry month: November
