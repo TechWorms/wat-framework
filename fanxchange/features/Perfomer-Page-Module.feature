@@ -31,7 +31,7 @@ Feature: Checks that perfomer has 30 displayed results and button is present whe
 				And   I follow NFL
 				Then  I follow Buffalo Bills
 			    Then  I check if tickets have Date and Time , Event Location and Venue , Sell Tickets Option , Get Tickets
-			@trr    
+			 
 			Scenario: On performer page , I should be able to filter events by: 
 						
 						1. Schedule
