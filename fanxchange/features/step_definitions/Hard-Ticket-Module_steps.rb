@@ -13,25 +13,25 @@ Then(/^I follow Toronto Blue Jays$/) do
 end
 
 Then(/^I should see Toronto Blue Jays tickets$/) do
-  Watir::Wait.until {@browser.text.include? 'Toronto Blue Jays tickets'}
+  Watir::Wait.until(60) {@browser.text.include? 'Toronto Blue Jays tickets'}
 end
 
 Then(/^I should see Toronto Blue Jays vs\.$/) do
-  Watir::Wait.until {@browser.text.include? 'Toronto Blue Jays vs.'}
+  Watir::Wait.until(60) {@browser.text.include? 'Toronto Blue Jays vs.'}
 end
 
 Then(/^I select the fifth event to sell tickets for$/) do
   sleep 5
-  Watir::Wait.until { @browser.div(:class => 'list-box').visible? }
+  Watir::Wait.until(60) { @browser.div(:class => 'list-box').visible? }
   @browser.div(:class => 'list-box', :index => 5).a(:text => 'Sell Tickets').click
 end
 
 Then(/^I should see A few details we'll need to know\.$/) do
-  Watir::Wait.until {@browser.text.include? "A few details we'll need to know."}
+  Watir::Wait.until(60) {@browser.text.include? "A few details we'll need to know."}
 end
 
 Then(/^I use Yes, I have already the tickets\.$/) do
- Watir::Wait.until  {@browser.radio(:class => 'have_ticket').visible?}
+ Watir::Wait.until(60)  {@browser.radio(:class => 'have_ticket').visible?}
   @browser.radio(:class => 'have_ticket').set
 end
 
@@ -41,28 +41,28 @@ Then(/^I use Ship hard tickets by FedEx$/) do
 end
 
 Then(/^I use General Admission$/) do
-  Watir::Wait.until {@browser.radio(:id => 'general_admission').visible?}
+  Watir::Wait.until(60) {@browser.radio(:id => 'general_admission').visible?}
   @browser.radio(:id => 'general_admission').set
 end
 
 Then(/^I set ticket quantity for (\d+)$/) do |arg1|
-  Watir::Wait.until {@browser.text_field(:id => 'quantity_details').visible?}
+  Watir::Wait.until(60) {@browser.text_field(:id => 'quantity_details').visible?}
   @browser.text_field(:id => 'quantity_details').set '6'
 end
 
 Then(/^I use None, sell all my tickets together\.$/) do
- Watir::Wait.until {@browser.radio(:id => 'all_tickets_together').visible?}
+ Watir::Wait.until(60)  {@browser.radio(:id => 'all_tickets_together').visible?}
   @browser.radio(:id => 'all_tickets_together').set
 end
 
 Then(/^I check event for which i'm selling the tickets$/) do
-  Watir::Wait.until {@browser.div(:class => 'sidebar-fanx-content-team').visible?}
+  Watir::Wait.until(60) {@browser.div(:class => 'sidebar-fanx-content-team').visible?}
   andro = @browser.div(:class => 'sidebar-fanx-content-team').text
   puts andro
 end
 
 Then(/^I check event for which i'm buying the tickets$/) do
-  Watir::Wait.until {@browser.h1.visible?}
+  Watir::Wait.until(60) {@browser.h1.visible?}
   andro = @browser.h1.text
   andro1 = @browser.p(:class => 'subtitle').text
   puts andro
@@ -86,7 +86,7 @@ end
 
 
 Then(/^I should see It's your call\. Set your rates!$/) do
-  Watir::Wait.until {@browser.text.include? "It's your call. Set your rates!"}
+  Watir::Wait.until(60) {@browser.text.include? "It's your call. Set your rates!"}
 end
 
 Then(/^I set the price tickets I want to sell to (\d+)\.(\d+)$/) do |arg1, arg2|
@@ -98,7 +98,7 @@ Then(/^I set the end date of the sale to (\d+)\-(\d+)\-(\d+)$/) do |arg1, arg2, 
 end
 
 Then(/^I should see And now, for the best part\. Tell us how to pay you!$/) do
-  Watir::Wait.until {@browser.text.include? 'And now, for the best part. Tell us how to pay you!'}
+  Watir::Wait.until(60) {@browser.text.include? 'And now, for the best part. Tell us how to pay you!'}
 end
 
 Then(/^I Confirm$/) do
@@ -113,7 +113,7 @@ end
 end
 
 Then(/^I should see CONGRATULATIONS! Your ticket\(s\) is\/are listed!$/) do
-  Watir::Wait.until {@browser.text.include? 'CONGRATULATIONS! Your ticket(s) is/are listed!'}
+  Watir::Wait.until(60) {@browser.text.include? 'CONGRATULATIONS! Your ticket(s) is/are listed!'}
 end
 
 Then(/^I check my payout$/) do
@@ -123,7 +123,7 @@ end
 
 Then(/^I select the fifth event to buy tickets for$/) do
   sleep 5
-  Watir::Wait.until { @browser.div(:class => 'list-box').visible? }
+  Watir::Wait.until(60) { @browser.div(:class => 'list-box').visible? }
   @browser.div(:class => 'list-box', :index => 5).a(:text => 'GET TICKETS').click
 end
 
@@ -137,7 +137,7 @@ Then(/^I ORDER TICKETS$/) do
 end
 
 Then(/^I should see Thank you for placing your order with FanXchange\.$/) do
-  Watir::Wait.until {@browser.text.include? 'Thank you for placing your order with FanXchange.'}
+  Watir::Wait.until(60) {@browser.text.include? 'Thank you for placing your order with FanXchange.'}
 end
 
 Then(/^I go to user drop down menu$/) do
@@ -147,7 +147,7 @@ end
 
 Then(/^I should see My Tickets Sold$/) do
   sleep 3
-  Watir::Wait.until {@browser.text.include? 'My Tickets Sold'}
+  Watir::Wait.until(60) {@browser.text.include? 'My Tickets Sold'}
 end
 
 Then(/^I follow My Tickets Sold$/) do
@@ -155,7 +155,7 @@ Then(/^I follow My Tickets Sold$/) do
 end
 
 Then(/^I should be on My Tickets Sold page$/) do
-  Watir::Wait.until {@browser.text.include? 'My Tickets Sold'}
+  Watir::Wait.until(60) {@browser.text.include? 'My Tickets Sold'}
 end
 
 Then(/^I should see list of tickets sold$/) do
@@ -170,8 +170,8 @@ Then(/^I press open details for the last ticket sold$/) do
 end
 
 Then(/^I should see two options: Cancel and Confirm$/) do
-  Watir::Wait.until { @browser.text.include? 'Cancel Sale' }
-  Watir::Wait.until { @browser.button(:id => /confirm_/).visible? }
+  Watir::Wait.until(60) { @browser.text.include? 'Cancel Sale' }
+  Watir::Wait.until(60) { @browser.button(:id => /confirm_/).visible? }
 end
 
 Then(/^I Confirm the ticket$/) do
@@ -184,7 +184,7 @@ Then(/^I select Quebec from state$/) do
 end
 
 Then(/^My order should be confirmed$/) do
-  Watir::Wait.until {@browser.text.include? 'Sent to Buyer'}
+  Watir::Wait.until(60) {@browser.text.include? 'Sent to Buyer'}
 end
 
 Then(/^I set the airbil date to (\d+)\-(\d+)\-(\d+)$/) do |arg1, arg2, arg3|
@@ -199,7 +199,7 @@ Then(/^I Create the Airbill$/) do
 end
 
 Then(/^I should see the Tracking number of the order$/) do
-  Watir::Wait.until {@browser.span(:class => 'font-14').visible?}
+  Watir::Wait.until(60) {@browser.span(:class => 'font-14').visible?}
   hopls = @browser.span(:class => 'font-14').text
   puts hopls
 end
@@ -210,13 +210,13 @@ Then(/^I Print the Airbill$/) do
 end
 
 Then(/^I should see My Inbox$/) do
-  Watir::Wait.until {@browser.text.include? 'Inbox'}
+  Watir::Wait.until(60) {@browser.text.include? 'Inbox'}
 end
 
 Then(/^I check for order confirmation e\-mail$/) do
-  Watir::Wait.until {@browser.text.include? 'Congratulations! Your Order Has Been Confirmed.'}
+  Watir::Wait.until(60) {@browser.text.include? 'Congratulations! Your Order Has Been Confirmed.'}
 end
 
 Then(/^I check for tickets sent confirmation e\-mail$/) do
-  Watir::Wait.until {@browser.text.include? 'Congratulations! Your Tickets Have Been Sent.'}
+  Watir::Wait.until(60) {@browser.text.include? 'Congratulations! Your Tickets Have Been Sent.'}
 end
