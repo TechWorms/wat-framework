@@ -1,4 +1,4 @@
-filter Given(/^I am on Fanxchange$/) do
+  filter Given(/^I am on Fanxchange$/) do
  @browser
  @browser.goto "https://devteam:xkc2nXV8@staging.www.fanxchange.com"
  load = @browser.div(:class => 'logo-fanx').wait_until_present
