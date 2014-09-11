@@ -146,6 +146,7 @@ Then(/^I go to user drop down menu$/) do
 end
 
 Then(/^I should see My Tickets Sold$/) do
+  sleep 3
   Watir::Wait.until {@browser.text.include? 'My Tickets Sold'}
 end
 
@@ -165,6 +166,7 @@ end
 
 Then(/^I press open details for the last ticket sold$/) do
   @browser.button(:text => 'view', :index => 0).click
+  sleep 5
 end
 
 Then(/^I should see two options: Cancel and Confirm$/) do
