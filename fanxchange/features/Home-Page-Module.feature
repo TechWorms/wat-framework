@@ -37,7 +37,7 @@ Feature: FANX-1.0 / FANX-1.1 / FANX-1.2 / FANX-1.4 / FANX-2.6
                  Then  Once the page is loaded
                  Then  I should see the search box
                  And   The search placeholder should contain Search by Team, Artist, Event, Date or Venue
-          
+          @five
           Scenario: Upcoming events should be displayed based on my location , I should see a number of 5 Upcoming Events 
                  Given I am testing Homepage Features on Fanxchange
                  Then  Once the page is loaded
