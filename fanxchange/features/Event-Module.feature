@@ -26,7 +26,7 @@ Feature: Event Page
             Then  I check if tickets are available for the current event
             Then  I filter tickets on the map container section filter for Lower Level - Sideline
             And   I should see available tickets for Lower Level - Sideline
-        
+   
         Scenario: Filters
             Given I am testing Event Features on Fanxchange
             Then  Once the page is loaded
@@ -35,7 +35,7 @@ Feature: Event Page
             Then  I follow Arizona Cardinals
             Then  Once the page is loaded
             Then  I check if perfomer Arizona Cardinals has events
-            Then  I go to the fifth displayed event for Arizona Cardinals
+            Then  I go to the fourth displayed event for Arizona Cardinals
             Then  Once the page is loaded
             Then  I check if tickets are available for the current event
             Then  I should see the E-Ticket filter

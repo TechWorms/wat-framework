@@ -24,7 +24,7 @@ end
 
 Then(/^I go to the first displayed event$/) do
   if @browser.div(:class => 'action').a.exists?
-    @browser.div(:class => 'action', :index => 1).a.click    
+    @browser.div(:class => 'action', :index => 0).a.click    
   end
 end
 

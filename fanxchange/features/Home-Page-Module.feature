@@ -45,7 +45,7 @@ Feature: FANX-1.0 / FANX-1.1 / FANX-1.2 / FANX-1.4 / FANX-2.6
                  Then  I should see 5 events displayed 
                  And   The events displayed should match the location for upcoming events
                  And   I check that the tickets displayed do not have past dates
-          
+          @home1
           Scenario: No upcoming events without tickets available.
                  Given I am testing Homepage Features on Fanxchange
                  Then  Once the page is loaded
@@ -228,7 +228,7 @@ Feature: FANX-1.0 / FANX-1.1 / FANX-1.2 / FANX-1.4 / FANX-2.6
       Then  I use state New York
       Then  I Change Location
       And   I should see upcoming events for New York, New York
-    
+    @geo
     Scenario: Geo Location
       Given I navigate to https://proxylistpro.com/#proxy
       Then  I use address http://www.fanxchange.com

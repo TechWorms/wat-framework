@@ -95,21 +95,7 @@ Feature: E-Tickets
 			        Then  My order should be confirmed
 			        Then  I should see Select Your E-Tickets for upload
 
-            Scenario: Test Upload Module
-                    Given I am testing E-Tickets Features on Fanxchange
-					Then  Once the page is loaded
-					Given I login as a Seller
-					Then  I should be logged in and see Hi Seller
-					Then  I go to user drop down menu
-                    Then  I should see My Tickets Sold
-                    And   I follow My Tickets Sold
-                    Then  I press open details for the last ticket sold     
-                    Then  I upload e-ticket
-                    Then  I upload
-		            Then  I should see E-Ticket Link
-			        And   I should be able to download e-ticket
-
-		    Scenario: Upload more e-tickets than the maxium number allowed
+             Scenario: Upload more e-tickets than the maxium number allowed
 					Given I am testing E-Tickets Features on Fanxchange
 					Then  Once the page is loaded
 					Given I login as a Seller
@@ -127,3 +113,20 @@ Feature: E-Tickets
                     Then  I upload e-ticket
                     Then  I upload
                     Then  I should see The maximum number of tickets you can upload
+            
+            Scenario: Final Upload
+                    Given I am testing E-Tickets Features on Fanxchange
+					Then  Once the page is loaded
+					Given I login as a Seller
+					Then  I should be logged in and see Hi Seller
+					Then  I go to user drop down menu
+                    Then  I should see My Tickets Sold
+                    And   I follow My Tickets Sold
+                    Then  I press open details for the last ticket sold     
+                    Then  I upload e-ticket
+                    Then  I upload
+                    Then  I press open details for the last ticket sold
+		            Then  I should see E-Ticket Link
+			        And   I should be able to download e-ticket
+
+		   

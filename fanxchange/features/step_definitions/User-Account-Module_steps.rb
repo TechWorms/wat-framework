@@ -75,12 +75,12 @@ Then(/^I should see MY PROFILE$/) do
 end
 
 Then(/^I should see My Info$/) do
-  Watir::Wait.until(60) {@browser.text.include? 'My Info'}
+  Watir::Wait.until(60) {@browser.text.include? 'My info'}
 end
 
 Then(/^I follow My Info$/) do
-  if @browser.link(:text => 'My Info').visible?
-    @browser.link(:text => 'My Info').click
+  if @browser.link(:text => 'My info').visible?
+    @browser.link(:text => 'My info').click
   end
 end
 

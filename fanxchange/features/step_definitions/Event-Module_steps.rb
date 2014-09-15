@@ -75,9 +75,9 @@ Then(/^I should see available tickets for Lower Level \- Sideline$/) do
 end
 
 
-Then(/^I go to the fifth displayed event for Arizona Cardinals$/) do
-  Watir::Wait.until { @browser.div(:class => 'action', :index => 5).a.visible? }
-   @browser.div(:class => 'action', :index => 5).a.click
+Then(/^I go to the fourth displayed event for Arizona Cardinals$/) do
+  Watir::Wait.until { @browser.div(:class => 'action', :index => 4).a.visible? }
+   @browser.div(:class => 'action', :index => 4).a.click
    sleep 10
 end
 
@@ -110,7 +110,7 @@ Then(/^I should see only tickets that have more than (\d+)\+ available tickets f
   val6 = @browser.element(:class => 'selectqty', :index => 5).option.text
   puts val1
   puts val2
-  puts val3
+  puts val3 
   puts val4
   puts val5
   puts val6

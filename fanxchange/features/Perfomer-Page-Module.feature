@@ -48,8 +48,6 @@ Feature: Checks that perfomer has 30 displayed results and button is present whe
 				Then  I press Away
 				And   I should see vs. New England Patriots
 				Then  I should see Opposing Team filter
-				And   I select team Minnesota Vikings as opposing team
-				Then  I should see events with Minnesota Vikings
 				And   I select team Detroit Lions as opposing team
 				Then  I should see events with Detroit Lions
 				Then  I reset Opposing Team filter

@@ -101,27 +101,26 @@ Then(/^I go back$/) do
 end
 
 Then(/^I go to the second displayed event$/) do
-  if @browser.element(:class => "action", :index => 2).a.exists? == true
+  if @browser.element(:class => "action", :index => 1).a.exists? == true
+     @browser.element(:class => "action", :index => 1).a.click
+   end
+end
+
+Then(/^I go to the third displayed event$/) do
+if @browser.element(:class => "action", :index => 2).a.exists? == true
      @browser.element(:class => "action", :index => 2).a.click
    end
 end
 
-
-Then(/^I go to the third displayed event$/) do
-if @browser.element(:class => "action", :index => 3).a.exists? == true
+Then(/^I go to the forth displayed event$/) do
+  if @browser.element(:class => "action", :index => 3).a.exists? == true
      @browser.element(:class => "action", :index => 3).a.click
    end
 end
 
-Then(/^I go to the forth displayed event$/) do
+Then(/^I go to the fifth displayed event$/) do
   if @browser.element(:class => "action", :index => 4).a.exists? == true
      @browser.element(:class => "action", :index => 4).a.click
-   end
-end
-
-Then(/^I go to the fifth displayed event$/) do
-  if @browser.element(:class => "action", :index => 5).a.exists? == true
-     @browser.element(:class => "action", :index => 5).a.click
    end
 end
 
@@ -465,4 +464,5 @@ end
 Then(/^I open the connection$/) do
   dil = @browser.element(:class => 'button').span
   dil.click
+  @browser.element(:class => 'button').wait_while_present
 end

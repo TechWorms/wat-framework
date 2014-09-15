@@ -69,12 +69,13 @@ Then(/^I should see Select Your E\-Tickets for upload$/) do
 end
 
 Then(/^I upload e\-ticket$/) do
-  local_file = '/Users/remus/Work/wat-framework/wat.code/fanxchange/eticket.pdf'
+  local_file = '/Users/testingframework/Wat-Framework/fanxchange/eticket.pdf'
   @browser.file_field(:id => /tryIt_/).set local_file
 end
 
 Then(/^I upload$/) do
   @browser.button(:id => /upload_/).click
+  sleep 10
 end
 
 Then(/^I should see E\-Ticket Link$/) do
@@ -86,6 +87,6 @@ Then(/^I should be able to download e\-ticket$/) do
   @browser.a(:class => /download_now/).click
 end
 
-Then(/^I should see The maximum number of tickets you can upload$/)
+Then(/^I should see The maximum number of tickets you can upload$/) do
   Watir::Wait.until(60) {@browser.text.include? 'The maximum number of tickets you can upload'}
 end
