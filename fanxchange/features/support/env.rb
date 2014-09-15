@@ -11,6 +11,19 @@ browser = Watir::Browser.new
 INDEX_OFFSET = 0
 WEBDRIVER = true
 
+def read_var file, line_nr, vbegin, vend
+    IO.readlines(file)[line_nr][vbegin..vend]
+end
+
+module Watir
+  class Hidden < Input
+    # Set the value of a hidden input field.
+    def set(value)
+      self.browser.execute_script('arguments[0].setAttribute("value", arguments[1]);', self, value)
+    end
+  end
+end
+
 Before do |scenario| 
   @browser = browser
   @browser.cookies.clear
